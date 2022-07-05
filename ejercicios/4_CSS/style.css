@@ -1,0 +1,12 @@
+/* selectores: son las llamadas para poder editar las etiquetas
+por ejemplo, si quiero editar body, debo poner body{}*/
+
+/* body {
+    background-color: #b4b4b4; cambia el color de fondo
+    color: wheat; Cambia el color del texto
+} 
+*/
+
+/*otros selectores que vamos a ocupar serían los ID's y las class
+las id's se ocuparían para casos únicos mientras que las clases se ocuparían para un conjunto de elementos*/
+
