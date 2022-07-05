@@ -10,3 +10,17 @@ por ejemplo, si quiero editar body, debo poner body{}*/
 /*otros selectores que vamos a ocupar serían los ID's y las class
 las id's se ocuparían para casos únicos mientras que las clases se ocuparían para un conjunto de elementos*/
 
+body{
+    background-color: #efefef;
+}
+
+/* para seleccionar una ID hace falta poner el # antes del nombre de la id */
+#parrafo {
+    color: darkslateblue;
+}
+
+/* para seleccionar una clase hace falta poner el . antes del nombre de la clase*/
+
+.etiqueta{
+    color: #00aa00;
+}

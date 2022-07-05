@@ -1,0 +1,29 @@
+body{
+    background-color: #eee;
+}
+
+.caja{
+    margin: 8px; /*es un borde invisible que bordea el contenido por fuera de la caja*/
+    padding: 8px; /*es un borde invisible que bordea el contenido pero dentro de la caja*/
+    /* con border se puede hacer tipo, ancho y color */
+    border-style:solid; /*este se encuentra entre medio del padding y margin*/
+        /*Estilos de border:
+            solid: genera una linea solida en todo el margen
+            dashed: genera una linea punteada
+            dotted: tambien con puntos, pero un poquito más cortitos
+            double: muestra unas lineas dobles (pero apenas se nota)
+            groove o ridge: muestra como como con un etilo cincelado
+            inset: el contenido pero undido
+            outset: el contenido pero levantado 
+            hidden: oculto
+            
+        y lo mejor de todo es que se pueden asignar 4 border-style los cuales reprecentarían los ejes (y,x,-y,-x)*/
+    border-width: 4px;
+    border-color: #faa;
+    border-radius: 8px; /*redondea los bordes*/
+    height: 100px; /*la altura de la caja*/
+    width: 100px; /*el ancho de la caja*/
+    color: #000;
+
+    background-color: rgb(56, 205, 187);
+}

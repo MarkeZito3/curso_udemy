@@ -1,0 +1,52 @@
+/* Así hice el ejercicio de cajas flotantes */
+
+body{
+    background-color: #eee;
+}
+
+.contenedor{
+    margin: 8px;
+    margin-top: 16px;
+    background-color: #ccc;
+    border-style:solid;
+    border-color:#ccc;
+    border-width: 1px;
+    border-radius: 2px;
+    border-top: solid 0px;
+}
+
+#header{
+    padding: 12px;
+    background-color: #fff;
+    margin-bottom: 1px;
+    /* border: solid; */
+    /* border-color: black; */
+}
+
+#mensaje{
+    padding: 12px;
+    background-color: #fff;
+    /* margin: 1px; */
+    /* border: solid; */
+    /* border-color: black; */
+}
+
+#botones{
+    padding: 12px;
+    margin-top: 1px;
+    background-color: #fff;
+    border-bottom-left-radius: 1px;
+}
+
+#accept{
+    background-color: rgb(51, 146, 255);
+    padding: 4px;
+    border: none;
+    color:#fff
+}
+#cancel{
+    background-color: darkgrey;
+    padding: 4px;
+    border: none;
+    color:#fff
+}
