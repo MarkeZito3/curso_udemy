@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(255, 243, 221);
+}
+
+p {
+    font-family:"Times New Roman",; /*tipo de fuente*/
+    font-style:oblique; /*qué tipo de estilo puede tener*/
+    font-size: 2em; /*el "em" se le pone para que modifique dependiendo de cómo tenga en default el usuario*/
+    font-weight: bold;
+
+    color:rgb(80, 0, 0);
+    text-align:left; /*esto sirve para alinear el texto y hay distintos modos:
+                            center: te deja el texto centrado
+                            right: a la derecha
+                            left: a la izquierda (default)
+                            justify: justificación
+                            */
+    text-indent: 20px;
+    text-align: justify;
+    line-height: 1.4; /*la altura de las lineas del texto*/
+    text-shadow:1px 1px 2px rgba(0, 0, 0, 0.5); /*le agrega sombras desplazandolas a la (derecha,abajo,difuminado,color) */
+}
+a{
+    text-decoration:none;/*Esto sirve para la decoración de un texto y hay distintos modos:
+                            none: sin decoración
+                            overline: subrayado sobre el texto
+                            line-through: tacha el texto
+                            uderline: subrayado
+                            **/
+    /*text-transform: ; uppercase: todo mayúscula
+                        lowercase: todo minúscula
+                        capitalize: la primera letra en mayuscula*/
+    letter-spacing: normal; /*el espacio entre las letras*/
+    word-spacing: normal; /*el espacio entre las palabras*/
+    color:#0000ba
+}
+a:link{color:#000045;}
+a:visited{color:pink;} /*a:visited es cuando ese link está visitado*/
+a:hover{
+    color:darkslategrey;
+    text-decoration: line-through;
+}/*cuando se pasa el mouse por encima*/
+a:active{color:darkcyan;}/*cuando se le hac click*/

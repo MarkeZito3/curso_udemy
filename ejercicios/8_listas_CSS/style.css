@@ -1,0 +1,37 @@
+body{
+    background-color: rgb(255, 243, 221);
+}
+
+/* Listas */
+ul{
+    background-color: #fff;
+    border: solid 1px #ddd;
+    border-radius: 4px;
+    padding: 10px 15px 15px 15px ;
+    list-style-type: none;
+}
+ul li{
+    padding-top: 15px;
+    border-bottom:solid 1px #ddd;
+}
+
+/* Tablas */
+table{
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+}
+tr:nth-child(even){
+    background-color: #dedede;
+}
+td{
+    border: solid 1px rgb(122, 122, 122);
+    padding-left: 8px;
+}
+table th{
+    background-color: #005000;
+    border: solid 1px #005000;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
