@@ -1,0 +1,41 @@
+body{
+    background-color: #eee;
+}
+
+p{
+    max-width: 370px;
+    background-color: blanchedalmond;
+    margin: auto;
+    position:relative;
+    top: 0px;
+}
+div p{
+    max-width: 370px;
+    background-color: #222;
+    color: #eee;
+    margin: auto;
+    position:relative;
+    top: 0px;
+}
+
+a #gato-opacity:hover{
+    opacity: 0.7;
+}
+
+
+/* algunos elementos pueden volverse invisibles con la propiedad
+de "none" dentro de display */
+
+#invisible{
+    display: none;
+}
+
+#over{
+    width: 100px;
+    height: 100px;
+    overflow: auto;
+}
+
+img{
+    float:left;
+}
