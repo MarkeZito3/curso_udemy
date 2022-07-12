@@ -46,3 +46,7 @@ body{
 .drop_down:hover .drop_down-content{
     display: block;
 }
+
+.contenido p{
+    margin: 5px 0px;
+}

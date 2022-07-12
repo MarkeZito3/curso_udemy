@@ -1,0 +1,66 @@
+body{
+    background-color: #eee;
+}
+
+/* selecciono todos los campos con la propiedad de type="text" */
+input[type="text"]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline;
+    box-sizing: border-box; /*esto es para que el margen se quede dentro de la ventana cuando se indica el 100%*/
+}
+
+input[type="submit"]{
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /*esto es para que cuando se pasa el mouse por encima aparece la manito :3*/
+}
+.box{
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    box-shadow: 0px 3px 4px rgba(0,0,0,0.1);
+    margin-top:55px;
+}
+
+ul{
+    list-style-type: none;/*quitar los puntitos*/
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* si hay cosas que se escapen de los margenes que no se muestren*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+}
+
+li{
+    float: left; /*también se podría ocupar el comando de abajo*/
+    /* display: inline; */
+}
+
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none; /*quita lo subrayado*/
+    opacity: 0.76;
+}
+li a:hover{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.active {
+    background-color: #4caf50;
+}

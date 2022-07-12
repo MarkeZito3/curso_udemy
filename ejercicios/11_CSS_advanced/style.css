@@ -1,0 +1,53 @@
+body{
+    background-color: #eee;
+}
+
+.colores{
+    background-color: hsl(70, 55%, 55%);
+    
+}
+
+.fondos{
+    height: 512px;
+    background-color: #fefef0;
+    background-image: url("https://thiscatdoesnotexist.com/");
+    background-repeat: no-repeat;
+    background-position: none;
+    background-attachment: scroll; /*se mantiene fijo el fondo*/
+    /* background-size: cover; */
+}
+
+.gradiante{
+    background: linear-gradient(142deg,yellow,red); /*el ángulo o el destino de especifica al principio, si no se especifica nada por default queda como to bottom, luego se le puede agregar todos los colores que quieras y se estquean XD*/
+}
+
+.box{
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5); /*la sombra va de (x,-y,difuminado,color,modos)*/
+}
+.text{
+    color: white;
+    text-shadow: 0px 0px 4px rgb(0,0,0);/*ocupa las mismas propiedades que shadow*/
+}
+
+/*transform*/
+/*los transform solo funcionan con los elementos cuyo display sea block*/
+.caja-transform{
+    position: relative;
+    left: 50px;
+    top: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    box-shadow: 2px 2px 2px gray;
+    /*transform: rotate(20deg); rota 20º en dirección horaria*/
+    /*transform: translate(50px,100px); cuanto quiere que se mueva en los ejes X e Y*/
+    /*transform: scale(0.4,2);los dos elementos le indico qué tan ancho y alto esté*/
+    /*transform: skew(2deg);también se puede definir con la funcion skewY() o skewX()*/
+    transition: 0.2s,1.3s;
+}
+
+.caja-transform:hover{
+    background: linear-gradient(125deg,yellow,rgb(224, 255, 23));
+    transform: scale(1.04,1.05);/* también se puede definir con la funcion scaleY() o sacleX() */
+    /* width: 150px; */
+}
