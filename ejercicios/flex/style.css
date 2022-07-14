@@ -1,0 +1,40 @@
+body{
+    background-color: #eee;
+    /* width: 200px; */
+}
+
+.flex{
+    display: flex;
+    /* flex-wrap: wrap; */ /*esto lo que hace es tomar el contenido que sobrepasó los 200px y lo llevó a la linea de abajo*/
+    flex-flow: row wrap; /*este tomará dos valores (direction,wrap)*/
+    /* justify-content:space-around; */ /*justificación del contenido*/
+    /* align-items:baseline; */
+    height: 200px;
+    align-content: space-around; /*default flex-start*/
+    background-color: thistle;
+}
+
+.flex-top{
+    display: flex;
+    flex-flow: row wrap;
+    height: 200px;
+}
+
+/* la prioridad de orden de todos los flex es de 0, pero este se puede modificar con la propiedad de abajo
+    si esta cambia a 1 se va al final y las que tienen el mismo orden se ordenan según la llegada */
+.primero {
+    /* order:-1; */
+    flex-grow: 1;
+    flex-basis: 120px;
+    /* También se puede ocupar uno solo para definir a ambos que es flex: grow basis */
+
+}
+.segundo{
+    /* order: 2; */
+    flex:1 120px; /* es recomendable ocupar de esta forma OwO */
+}
+.tercero {
+    flex-grow: 2;
+    /* order: 1; */
+    align-self:stretch;
+}
