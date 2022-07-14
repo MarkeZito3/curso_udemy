@@ -1,0 +1,62 @@
+body{
+    background-color: #eee;
+}
+
+.grid{
+    margin-top: 50px;
+    display: grid; /*este también puede tener el valor de inline-grid: la grilla va a ser tan ancha como el elemento mismo*/
+    
+    /* grid-template-rows: 50px 100px; */ /*si no se le agrega la altura, por defecto se le pone una automática del tamaño del elemento */
+    /* grid-template-rows:minmax(100px,auto); */
+    /* grid-template-columns: minmax(auto,50%) 1fr 3em; */ /*como no se definieron más falores se colocaron abajo*/
+    /*también pueden ser reprecentados en fracciones con "fr" ej: "1fr 2fr 3fr" que sumaría todos los números y le daría la cantidad a cada uno
+    y quedaría algo asi: "1/6 2/6 3/6" siendo la suma total el ancho total de la pantalla*/
+
+    grid-template-rows: repeat(4,[row-inicio-header] 50px [row-fin-header]); /*repeat resive dos parámetros, la cantidad y la longitud, entonces el 50px se repite 4 veces*/
+    grid-template-columns: repeat(3, [column-inicio-header] 1fr [column-fin-header]);
+    grid-gap: 10px;
+    text-align: center;
+}
+.element{
+    background-color: red;
+}
+
+.header{
+    /* grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3; */
+    /*lo mismo que está arriba se puede reducir a esto:*/
+    grid-column: column-inicio-header / column-fin-header 3;
+    grid-row: row-inicio-header / row-fin-header 2;
+}
+
+.grid-top{
+    background-color: #ddd;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-areas:"header header"
+    "content sidebar"
+    "footer footer";
+    grid-template-rows: 150px 1fr 100px;
+    grid-template-columns: 1fr 200px;
+
+}
+.green{
+    background-color: rgb(68, 226, 68);
+}
+.other-color-sidebar{
+    background-color: rgb(68, 226, 160);
+}
+.other-color div{
+    background-color: rgb(68, 226, 160);
+    
+}
+.grid-top div{
+    border: solid 1px #ddd;
+    border-radius: 4px;
+}
+.sidebar-aj{
+    align-self: center;
+    justify-self: center;
+}
