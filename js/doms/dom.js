@@ -12,5 +12,5 @@ window.onload = () => {
     parrafo.innerText = "texto actualizado";
     // con el innerHTML puedo cambiar el texto o leerlo, pero también me deja ponerle características HTML
     const cambio = document.getElementById("cambio");
-    cambio.innerHTML = "<h1>Esto es un cambio pero con características HTML</h1>"; 
+    cambio.innerHTML = "<h1>Esto es un cambio pero con características HTML</h1>";
 }
