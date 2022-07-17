@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(34, 17, 49);
+}
+
+li {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: antiquewhite;
+}
+
+#todo{
+    background-color: rgba(43, 43, 43, 0.222);
+}
