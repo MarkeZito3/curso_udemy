@@ -1,0 +1,14 @@
+definición:
+    una API REST es un código almacenado en una nube cuya funcionalidad es conectar al cliente con la base de datos mediante trozos de código,
+    esto sirve, por ejemplo, si un cliente quiere consultar algo a nuestra API REST, lo hace mediante un código que hará una promesa, esa promesa irá a la base de datos,
+    consultará su consulta (consultará su consulta XDD) y luego le retornará el valor a la nube, es decir a la API REST, y luego esta le entregará el resultado al cliente,
+    sea el resultado un error o una devolucion válida a su consulta.
+
+En este caso, se trabajará de la manera standard de como lo hacen otras aplicaciones web, como verbos se encuentan estos: 
+    - GET /users - /users/:id return [users,users2] - {users}
+    - POST /users return crea users
+    - PUT /users/:id return reemplaza un users/:id existente
+    - PATCH /users/:id return actualiza de manera temporal, normalmente se lo ocupará de manera práctica con algunos atributos 
+    - DELETE /users/:id return elimina XD
+
+    de manera practica ocuparemos PUT y PATCH como el mismo verbo (se ocupará para actualizar)
