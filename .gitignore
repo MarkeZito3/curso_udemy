@@ -1,3 +1,4 @@
 .vscode
 .dist
 /apis/node_modules
+/apis/key.js

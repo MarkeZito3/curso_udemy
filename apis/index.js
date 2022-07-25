@@ -1,49 +1,58 @@
-const express = require("express");
-const user = require("./user.controller"); /* con  el ./ se indica que estamos llamando a un archivo dentro de la misma carpeta y no dentro de los módulos instalados de node js */
-const app = express();
-const port = 3000;
+const key_mongo = require("./key.js"); // este archivo no está dispoible por seguridad
+const mongoose = require('mongoose');
 
+mongoose.connect(key_mongo.key_mongo());
 
-// esta forma es una forma larga de hacer las llamadas, sin embargo, en la linea 2 se importó el módulo user.controller que sirve como handler, para llevar la lógica allá para que esté menos saturado el código main.
-
-
-// app.get('/',(req, res) =>{
-//     res.status(200).send('Chanchito feliz :D'); // el código 200 significa OK y te envia datos
-// });
-
-// app.post('/',(req, res) =>{
-//     res.status(201).send("creando chanchito"); /* el código 201 significa OK CREADO y no es necesario que enviemos nada, pero si no vamos a retornar nada, 
-//                                                     se ocuparía el código de estado 204 */
-// });
-
-// app.get('/:id', (req, res) =>{
-//     console.log(req.params)
-//     res.status(200).send(req.params);
-// })
-
-// app.put('/:id', (req, res) =>{ /* el :id significa que va a ser un dato variable pero que este aparecerá en la ruta */
-//     console.log(req.params)
-//     res.sendStatus(204); /* con sendStatus estoy aclarando que solamente le voy a devolver el estado */
-// })
-
-// app.patch('/:id', (req, res) =>{ /* el :id significa que va a ser un dato variable pero que este aparecerá en la ruta */
-//     res.sendStatus(204); /* con sendStatus estoy aclarando que solamente le voy a devolver el estado */
-// })
-
-// app.delete('/:id', (req, res) =>{
-//     res.sendStatus(204); 
-// })
-
-
-// en esta parte escribiré las cosas pero ocupando el módulo para mayor dinamismo.
-
-app.get("/", user.list);
-app.post("/", user.create);
-app.get("/:id", user.params);
-app.put("/:id", user.update);
-app.patch("/:id", user.update);
-app.delete("/:id", user.destroy);
-
-app.listen(port, () => {
-    console.log("arrancando la app :3");
+const User = mongoose.model('User',{
+    username: String,
+    edad: Number,
 });
+
+const crear = async () => { /* async significa que este es asíncrono*/
+    const user = new User({ username: "michi", edad: 1 });
+    const savedUser = await user.save(); //Esto retorna una promesa UwU, por lo cual se puede ocupar los mismos métodos que una promesa, ej: .then()
+    console.log(savedUser)
+}
+
+// crear()
+
+const buscarTodos = async () => {
+    const users = await User.find();
+    console.log(users);
+};
+
+// buscarTodos()
+
+const buscar = async () => {
+    const user = await User.find({ username: 'pepe' });
+    console.log(user);
+};
+
+// buscar()
+
+const buscarUno = async () => {
+    const user = await User.findOne({ username : "michi" });
+    console.log(user);
+};
+
+// buscarUno()
+
+const actualizar = async () => {
+    const user = await User.findOne({ username : "michi" }); // para poder actualizar un user hay que buscarlo UwU
+    console.log(user);
+    user.edad = 10; // cambio el valor que antes era 1 a 10
+    await user.save();
+};
+
+// actualizar()
+
+// hay que validar que el usuario exista antes de eliminar el coso
+const eliminar = async () => {
+    const user = await User.findOne({ username : "michi" });
+    console.log(user);
+    if (user){
+        await user.remove(); // solo lo vamos a poder llamar siempre y cuando el recurso exista (en este caso, "michi")
+    };
+};
+
+eliminar()

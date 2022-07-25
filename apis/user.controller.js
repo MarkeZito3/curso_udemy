@@ -1,19 +1,27 @@
 // este archivo serviría para pasar la lógica acá, eso evita que en el otro no se sature demasiado 
 
-const User = { /* Este módulo se llevará al original (index.js) para una mayor legibilidad y dinamismo */
-    params: (req, res) => {
-        res.status(200).send("esto es un chanchito :3");
+const Users = require('./User')
+
+const User = { /* Este módulo se llevará al main (api.js) para una mayor legibilidad y dinamismo */
+    params: async (req, res) => {
+        const { id } = req.params;
+        const user = await Users.findOne({ _id: id })
+        res.status(200).send(user);
     }, 
-    list: (req, res) => {
-        res.status(200).send("Hola Chanchito OwO");
+    list: async (req, res) => {
+        const users = await Users.find();
+        res.status(200).send(users);
     },
-    create: (req, res) => {
-        res.status(201).send("Creando un chanchito");
+    create: async (req, res) => {
+        console.log(req.body) /* Esto se va a ver muy seguido en las API rest */
+        const user = new Users(req.body);
+        const savedUser = await user.save();
+        res.status(201).send(savedUser._id);
     },
-    update: (req, res) => {
+    update: async (req, res) => {
         res.status(204).send("actualizando chanchito");
     },
-    destroy: (req, res) => {
+    destroy: async (req, res) => {
         res.status(204).send("eliminando chanchito");
     },
 }
