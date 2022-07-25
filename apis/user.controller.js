@@ -19,10 +19,19 @@ const User = { /* Este módulo se llevará al main (api.js) para una mayor legib
         res.status(201).send(savedUser._id);
     },
     update: async (req, res) => {
-        res.status(204).send("actualizando chanchito");
+        const { id } = req.params;
+        const user = await Users.findOne({ _id: id });
+        Object.assign(user, req.body);
+        await user.save();
+        res.sendStatus(204);
     },
     destroy: async (req, res) => {
-        res.status(204).send("eliminando chanchito");
+        const { id } = req.params;
+        const user = await Users.findOne({ _id: id });
+        if (user){
+            user.remove();
+        }
+        res.sendStatus(204)
     },
 }
 
