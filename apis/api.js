@@ -44,12 +44,21 @@ mongoose.connect(key_mongo.key_mongo());
 
 // en esta parte escribiré las cosas pero ocupando el módulo para mayor dinamismo.
 
-app.get("/", user.list);
-app.post("/", user.create);
-app.get("/:id", user.params);
-app.put("/:id", user.update);
-app.patch("/:id", user.update);
-app.delete("/:id", user.destroy);
+app.get("/users", user.list);
+app.post("/users", user.create);
+app.get("/users/:id", user.params);
+app.put("/users/:id", user.update);
+app.patch("/users/:id", user.update);
+app.delete("/users/:id", user.destroy);
+
+// esta parte sirve para que que no aparezca que no existe el archivo main.js
+// ya que si ingresan al pagina.com/main.js, los redirige a la carpeta app y dentro de ella busca el archivo main.js que ingresamos antes
+app.use(express.static('app'));
+
+// acá va a estar el home
+app.get("/", (req, res)=>{
+    res.sendFile(`${__dirname}/index.html`);
+})
 
 // al final de todas las rutas agregaads se agrega lo siguiente:
 

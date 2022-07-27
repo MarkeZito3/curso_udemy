@@ -1,1 +1,0 @@
-exports.key_mongo = key_mongo;
