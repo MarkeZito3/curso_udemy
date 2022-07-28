@@ -1,4 +1,8 @@
 .vscode
 .dist
+# from apis folder
 /apis/node_modules
 /apis/key.js
+
+# from auth folder
+/auth/node_modules

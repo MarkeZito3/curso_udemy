@@ -4,13 +4,21 @@ const Users = require('./User')
 
 const User = { /* Este módulo se llevará al main (api.js) para una mayor legibilidad y dinamismo */
     params: async (req, res) => {
-        const { id } = req.params;
-        const user = await Users.findOne({ _id: id })
-        res.status(200).send(user);
+        try{
+            const { id } = req.params;
+            const user = await Users.findOne({ _id: id })
+            res.status(200).send(user);
+        } catch(err){
+            console.log(err);
+            res.status(404).send("Esta página no existe");
+        }
     }, 
     list: async (req, res) => {
-        const users = await Users.find();
-        res.status(200).send(users);
+        try{
+            const users = await Users.find();
+            res.status(200).send(users);
+        } catch(err){console.log(err);}
+
     },
     create: async (req, res) => {
         console.log(req.body) /* Esto se va a ver muy seguido en las API rest */
