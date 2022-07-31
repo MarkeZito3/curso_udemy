@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const jsonwebtoken = require('jsonwebtoken');
 const { expressjwt: jwt } = require("express-jwt");
 // const expressJwt = require('express-jwt');
-const key_mongo = require('../apis/key.js');
+const key_mongo = require('../apis/key.js'); // este archivo contiene la key secreta, recomiendo quitarla o agregar alguna key por su cuenta
 const User = require('./user');
 
 mongoose.connect(key_mongo.key_mongo());

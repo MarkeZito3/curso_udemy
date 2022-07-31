@@ -1,5 +1,8 @@
 .vscode
 .dist
+# ignore every folder named:
+*/node_modules
+
 # from apis folder
 /apis/node_modules
 /apis/key.js
