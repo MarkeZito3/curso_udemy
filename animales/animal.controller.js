@@ -16,7 +16,9 @@ const Animal = {
 	destroy: async (req, res) => {
 		const { id } = req.params
 		const animal = await Animals.findOne({ _id: id })
-    await animal.remove()
+		if (animal){
+			animal.remove()
+		}
 		res.status(204).send('eliminando chanchito :(')
 	}
 }

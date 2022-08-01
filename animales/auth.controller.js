@@ -1,23 +1,24 @@
 const express = require('express'); 
 const bcrypt = require('bcrypt');
-const expressJwt = require('express-jwt');
+const { expressjwt: expressJwt} = require('express-jwt');
 const jwt = require('jsonwebtoken');
 const User = require('./user.model');
 const secret_key = require('../apis/key');
 
-const validateJwt = expressJwt({ secret: secret_key.secret_key(), algorithms: ['HS256']});
-
-const signToken = _id => jwt.sign({ _id }, secret_key.key_mongo());
+const validateJwt = expressJwt({ secret: secret_key.secret_key(), algorithms: ['HS256'] });
+const signToken = _id => jwt.sign({ _id }, secret_key.secret_key());
 
 const findAndAssignUser = async (req, res, next) => {
     try{
-        const user = await User.findById(req.auth._id);
+        const user = await User.findById(req.auth._id)
         if(!user){
             return res.status(401).end()
         }
+        console.log("todo joya padre :D")
         req.user = user;
         next();
     } catch(err){
+        console.log("----------------------------------------------------------------")
         next(err);
     }
 }
