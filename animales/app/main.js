@@ -97,31 +97,6 @@ const loadRegisterTemplate = () => {
 	body.innerHTML = template
 }
 
-const addRegisterListener = () => {
-	const registerForm = document.getElementById('register-form')
-	registerForm.onsubmit = async (e) => {
-		e.preventDefault()
-		const formData = new FormData(registerForm);
-		const data = Object.fromEntries(formData.entries()) // Con esto transformamos todos los datos del formulario en objetos js :D
-
-		const response = await fetch('/register', {
-			method: 'POST',
-			body: JSON.stringify(data), 
-			headers: { 
-				'Content-Type': 'application/json' 
-			}, 
-		})
-		const responseData = await response.text()
-		if (response.status >= 300){
-			const errorNode = document.getElementById('error');
-			errorNode.innerHTML = responseData;
-		} else {
-			localStorage.setItem('jwt', `Bearer ${responseData}` )
-			console.log(responseData)
-			animalsPage()
-		}
-	}
-}
 
 const gotoLoginListener = () => {
 	const gotoLogin = document.getElementById("login");
@@ -145,22 +120,22 @@ const loginPage = () =>{
 
 const loadLoginTemplate = () => {
 	const template = `
-		<h1>Login</h1>
-		<form id="login-form">
-			<div>
-				<label>Correo</label>
-				<input name="email" />
-			</div>
-			<div>
-				<label>Contraseña</label>
-				<input name="password" />
-			</div>
-			<button type="submit">Enviar</button>
-		</form>
-		<a href="#" id="register">Registrarse</a>
-		<div id="error"></div>
+	<h1>Login</h1>
+	<form id="login-form">
+	<div>
+	<label>Correo</label>
+	<input name="email" />
+	</div>
+	<div>
+	<label>Contraseña</label>
+	<input name="password" />
+	</div>
+	<button type="submit">Enviar</button>
+	</form>
+	<a href="#" id="register">Registrarse</a>
+	<div id="error"></div>
 	`
-
+	
 	const body = document.getElementsByTagName('body')[0]
 	body.innerHTML = template
 }
@@ -173,14 +148,14 @@ const gotoRegisterListener = () => {
 	}
 }
 
-const addLoginListener = () => {
-	const loginForm = document.getElementById('login-form')
-	loginForm.onsubmit = async (e) => {
+const authListener = action => () => {
+	const form = document.getElementById(`${action}-form`)
+	form.onsubmit = async (e) => {
 		e.preventDefault()
-		const formData = new FormData(loginForm);
+		const formData = new FormData(form);
 		const data = Object.fromEntries(formData.entries()) // Con esto transformamos todos los datos del formulario en objetos js :D
-
-		const response = await fetch('/login', {
+		
+		const response = await fetch(`/${action}`, {
 			method: 'POST',
 			body: JSON.stringify(data), 
 			headers: { 
@@ -197,6 +172,11 @@ const addLoginListener = () => {
 		}
 	}
 }
+
+const addRegisterListener = authListener("register")
+
+const addLoginListener = authListener("login")
+
 window.onload = () => {
 	const isLoggedIn = checkLogin() // con esta constante nos fijamos si el usuario esté logueado viendo si dentro del localStorage hay un JWT
 	if(isLoggedIn){ 

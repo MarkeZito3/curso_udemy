@@ -9,3 +9,9 @@
 
 # from auth folder
 /auth/node_modules
+
+# from email folder
+/email/*
+/email/node_modules
+
+.env
