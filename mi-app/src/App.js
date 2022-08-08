@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Button from './Button.js'
+import './main.css'
 
-// también se pueden crear las "✨Nuevas Etiquetas✨" aca dentro
-const P = ({ children }) => {
-  return(
-    <p>{children}</p>
-  )
+// indicar un valor único para poder identificar la fila que queremos renderizar en caso que ese llegara a cambiar
+// en react, si estamos trabajando con listas que se van a imprimir tenemos que 
+const arr = [
+    'Blondy feliz',
+    'Blondy triste',
+    'Blondy emocionado',
+];
+
+const App = () => {
+
+    const miVariable = false;
+
+    if (miVariable) {
+        return <p>Mi variable dio true!</p>
+    }
+
+    return (
+        <div className = "class-P-modified">
+            <h1>Hello</h1>
+            <h1>World</h1>
+            {arr.map(el => <p key={el}>{el}</p>)}
+            <Button onClick = {() => console.log("Clicked")}/>
+        </div>
+    );
 };
-
-/* la funcionalidad de crear una función App es hacer que dentro del HTML haya lógica, algo que no se puede hacer en el html normal, luego, estas se exportan y se renderizan en el index */
-function App() {
-  /* aca iría la lógica: */
-  let logica = "UwU"
-
-  return (
-  <div>
-    <p className='clase-p'>{logica}</p>
-    <P>✨Brillito UwU✨</P>
-  </div>
-  );
-}
 
 export default App;

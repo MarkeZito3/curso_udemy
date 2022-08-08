@@ -1,0 +1,29 @@
+body {
+    background-color: #222;
+}
+
+.class-P-modified {
+    color: #eee
+}
+
+.class-p-default {
+    color: #eee
+}
+
+.btn{
+    transition: all 0.3s ease-in-out;
+    background-color: #777;
+    color:#eee;
+    border:none;
+    padding: 10px;
+}
+.btn:hover{
+    
+    background-color: #444;
+    color:#eee;
+    border:none;
+    padding: 10px;
+}
+.btn:active{
+    padding: 5px;
+}
